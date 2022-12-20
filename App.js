@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Navegation from './App/Navegation/Navegation';
+import { IconComponentProvider, Icon } from "@react-native-material/core";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import AppContext from './App/Global/Context/appContext';
+import reducerApp, { initialStateApp } from './App/Global/Reducers/reducerApp';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <AppContext initialStateApp={initialStateApp} reducerApp={reducerApp} >
+      <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+        <Navegation />
+      </IconComponentProvider>
+    </AppContext>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
